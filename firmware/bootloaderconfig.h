@@ -174,15 +174,12 @@ these macros are defined, the boot loader uses them.
 #   define MCUCSR   MCUSR
 #endif
 
-//#define APPCHECKSUM
+// shouldn't be disabled on tiny85 as corruption is very dangerous
+#define APPCHECKSUM
 
 /* tiny85 Architecture Specifics */
 #ifdef __AVR_ATtiny85__
 #   define TINY85MODE
-
-//#	ifndef APPCHECKSUM
-//#		define APPCHECKSUM
-//#	endif
 
 // number of bytes before the boot loader vectors to store the tiny application vector table
 #   define TINYVECTOR_RESET_OFFSET     4
